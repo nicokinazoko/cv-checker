@@ -1,0 +1,18 @@
+{
+  "name": "mini-project-rakamin-backend",
+  "version": "1.0.0",
+  "description": "CV checker",
+  "license": "MIT",
+  "author": "Nico",
+  "type": "module",
+  "main": "src/app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
