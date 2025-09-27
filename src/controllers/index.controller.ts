@@ -6,6 +6,9 @@ import {
     deleteUserController
 } from "./user.controller.js";
 
+import {
+    loginController
+} from './login.controller.js'
 
 export {
     // User
@@ -15,4 +18,6 @@ export {
     updateUserController,
     deleteUserController,
 
+    // Login
+    loginController
 }

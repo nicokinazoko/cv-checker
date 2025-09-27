@@ -1,3 +1,4 @@
+import { login } from './login.service.js';
 import {
     getAllUsers,
     createUser,
@@ -16,4 +17,6 @@ export {
     updateUser,
     deleteUser,
 
+    // Login
+    login,
 }
