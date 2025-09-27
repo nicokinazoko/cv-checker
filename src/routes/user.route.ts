@@ -7,6 +7,10 @@ import {
     deleteUserController
 } from '../controllers/index.controller.js';
 
+import {
+    VerifyJWTToken
+} from '../middlewares/index.middleware.js';
+
 const router = express.Router();
 
 // TODO: ADD LIMITER FOR ALL ROUTES
@@ -15,15 +19,15 @@ const router = express.Router();
 router.post('/create', createUserController);
 
 // For get all user
-router.get('/', getAllUsersController);
+router.get('/', VerifyJWTToken, getAllUsersController);
 
 // For get user by id
 router.get('/:id', getOneUserByIdController);
 
 // To edit user by id
-router.patch('/edit/:id', updateUserController);
+router.patch('/edit/:id', VerifyJWTToken, updateUserController);
 
 // To delete user by id
-router.delete('/:id', deleteUserController);
+router.delete('/:id', VerifyJWTToken, deleteUserController);
 
 export default router;
