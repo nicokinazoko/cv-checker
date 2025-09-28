@@ -1,6 +1,6 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
 
-interface resultModel extends Document {
+export interface ResultModel extends Document {
     cv_match_rate: number
     cv_feedback: string
     project_score: number
@@ -11,7 +11,7 @@ interface resultModel extends Document {
     updatedAt: Date
 }
 
-const resultSchema = new Schema<resultModel>({
+const resultSchema = new Schema<ResultModel>({
     cv_match_rate: Number,
     cv_feedback: String,
     project_score: Number,
@@ -26,6 +26,6 @@ const resultSchema = new Schema<resultModel>({
     timestamps: true
 });
 
-const Result: Model<resultModel> = mongoose.model<resultModel>('results', resultSchema);
+const Result: Model<ResultModel> = mongoose.model<ResultModel>('results', resultSchema);
 
 export default Result;
