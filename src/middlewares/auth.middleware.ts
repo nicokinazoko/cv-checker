@@ -9,7 +9,7 @@ interface AuthRequest extends Request {
     username?: string | JwtPayload
 }
 
-async function VerifyJWTToken(req: AuthRequest, res: Response, next: NextFunction): Promise<void>{
+async function VerifyJWTToken(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
     try {
         // Get authorization from headers
         const { authorization } = req.headers;
@@ -31,7 +31,7 @@ async function VerifyJWTToken(req: AuthRequest, res: Response, next: NextFunctio
         // It token not found, return validation message
         if (!token) {
             res.status(401).json({
-                success:false,
+                success: false,
                 statusCode: 401,
                 message: 'Token missing',
             });
@@ -51,7 +51,7 @@ async function VerifyJWTToken(req: AuthRequest, res: Response, next: NextFunctio
 
         // return status 401 if error happened
         res.status(401).json({
-            success:false,
+            success: false,
             statusCode: 401,
             message: 'Token not valid or expired',
         });
