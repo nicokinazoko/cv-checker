@@ -10,6 +10,12 @@ import {
     loginController
 } from './login.controller.js'
 
+import {
+    createParameterController,
+    uploadFileController,
+    deleteFileController
+} from './parameter.controller.js';
+
 export {
     // User
     getAllUsersController,
@@ -19,5 +25,10 @@ export {
     deleteUserController,
 
     // Login
-    loginController
+    loginController,
+
+    // Parameter
+    createParameterController,
+    uploadFileController,
+    deleteFileController,
 }
