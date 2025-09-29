@@ -7,7 +7,7 @@ import express from 'express';
 import { connectDB } from './config/database.js';
 
 // Import Route
-import { UserRouter, LoginRouter, ProcessRouter } from './routes/index.route.js';
+import { UserRouter, LoginRouter, FileRouter, ParameterRouter, ProcessRouter } from './routes/index.route.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,8 +29,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/user', UserRouter);
-app.use('/', LoginRouter);
-app.use('/', ProcessRouter);
-
+app.use('/', [LoginRouter, FileRouter, ProcessRouter]);
+app.use('/parameter', ParameterRouter);
 // Start server
 startServer();

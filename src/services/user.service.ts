@@ -108,7 +108,7 @@ async function getUserByUsername({ username }: Pick<QueryGetUser, 'username'>): 
             select('username hashed_password salt')
             .lean();
 
-            // If user not exist, return validation message
+        // If user not exist, return validation message
         if (!currentUser) {
             return {
                 success: false,
@@ -295,7 +295,7 @@ export {
     getAllUsers,
     getUserById,
     getUserByUsername,
-    
+
     createUser,
     updateUser,
     deleteUser

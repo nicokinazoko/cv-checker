@@ -8,6 +8,9 @@ import {
     deleteUser
 } from './user.service.js';
 
+import {
+    getOneProcess
+} from './processes.service.js';
 export {
     // Users
     getAllUsers,
@@ -19,4 +22,5 @@ export {
 
     // Login
     login,
+    getOneProcess
 }

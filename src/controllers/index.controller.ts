@@ -16,6 +16,10 @@ import {
     deleteFileController
 } from './parameter.controller.js';
 
+import {
+    getOneProcessController
+} from './process.controller.js'
+
 export {
     // User
     getAllUsersController,
@@ -31,4 +35,7 @@ export {
     createParameterController,
     uploadFileController,
     deleteFileController,
+
+    // Process
+    getOneProcessController,
 }
