@@ -1,6 +1,7 @@
 import express from 'express';
 import {
-    getOneProcessController
+    getOneProcessController,
+    processCVController
 } from '../controllers/index.controller.js';
 
 import {
@@ -10,5 +11,6 @@ import {
 const router = express.Router();
 
 router.get('/result/:id', VerifyJWTToken, getOneProcessController);
+router.post('/evaluate', VerifyJWTToken, processCVController);
 
 export default router;

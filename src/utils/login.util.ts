@@ -2,11 +2,15 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 import type { BaseResponse, TokenData, ExpiresInString } from '../models/index.model.js';
-import { generateHashedPassword } from './index.util.js';
 
 const secretKey = process.env.JWT_SECRET_KEY || '';
 
-
+type TokenResponse = {
+  token: string;
+  user: {
+    username: string;
+  };
+};
 async function ComparePassword({ passwordInput, username, hashedPassword, salt }: Record<string, string>): Promise<BaseResponse> {
     try {
         if (!passwordInput || !username || !hashedPassword || !salt) {
@@ -35,7 +39,8 @@ async function ComparePassword({ passwordInput, username, hashedPassword, salt }
     }
 }
 
-function GetToken({ tokenData, timeExpired }: { tokenData: TokenData; timeExpired: ExpiresInString | number }): BaseResponse<Object> {
+// function GetToken({ tokenData, timeExpired }: { tokenData: TokenData; timeExpired: ExpiresInString | number }): BaseResponse<Object> {
+function GetToken({ tokenData, timeExpired }: { tokenData: TokenData; timeExpired: ExpiresInString | number }): BaseResponse<TokenResponse> {
     try {
         if (!tokenData || !timeExpired || !secretKey) {
             return {
@@ -68,28 +73,8 @@ function GetToken({ tokenData, timeExpired }: { tokenData: TokenData; timeExpire
     }
 }
 
-// async function getUsernameFromToken({ tokenData }) {
-//     try {
-//         if (!tokenData) {
-//             throw new Error('Paramater get email is missing');
-//         }
-
-//         const tokenDecode = jwt.verify(tokenData, secretKey);
-
-//         return tokenDecode.email;
-//     } catch (error) {
-//         console.log('Error in get token: ', error);
-
-//         return {
-//             success: false,
-//             message: 'Error when get username from token',
-//             statusCode: 500
-//         }
-//     }
-// }
-
 export {
     ComparePassword,
     GetToken,
-    // getUsernameFromToken
+
 };

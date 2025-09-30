@@ -9,8 +9,14 @@ import {
 } from './user.service.js';
 
 import {
+    createParameter
+} from './parameter.service.js';
+
+import {
+    processCv,
     getOneProcess
 } from './processes.service.js';
+
 export {
     // Users
     getAllUsers,
@@ -22,5 +28,11 @@ export {
 
     // Login
     login,
+
+    // Parameter,
+    createParameter,
+
+    // Process
+    processCv,
     getOneProcess
 }

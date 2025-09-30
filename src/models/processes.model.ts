@@ -10,6 +10,7 @@ export interface ProcessModel extends Document {
     user_id: Types.ObjectId | UserModel,
     parameter_id: Types.ObjectId | ParameterModel
     status: 'active' | 'deleted'
+    failure_reason: string
     createdAt: Date
     updatedAt: Date
 }
@@ -36,7 +37,8 @@ const processSchema = new Schema<ProcessModel>({
         type: String,
         enum: ['active', 'deleted'],
         default: 'active'
-    }
+    },
+    failure_reason: String
 }, {
     timestamps: true
 });

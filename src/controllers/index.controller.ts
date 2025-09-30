@@ -17,7 +17,8 @@ import {
 } from './parameter.controller.js';
 
 import {
-    getOneProcessController
+    getOneProcessController,
+    processCVController
 } from './process.controller.js'
 
 export {
@@ -38,4 +39,5 @@ export {
 
     // Process
     getOneProcessController,
+    processCVController
 }

@@ -42,7 +42,7 @@ async function VerifyJWTToken(req: AuthRequest, res: Response, next: NextFunctio
         const decoded = jwt.verify(token, secretKey);
 
         // set username in request
-        req.username = decoded;
+        req.username = (decoded as { username: string }).username;
 
         // continue process
         next();
