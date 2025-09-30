@@ -49,10 +49,15 @@ npm install
 Create a file named **`.env`** in the root directory and define the following variables:
 
 | Variable | Description | Example | 
-| ----- | ----- | ----- | 
-| `MONGO_URI` | Connection string for your MongoDB database. | `mongodb://localhost:27017/cv_corrector_db` | 
-| `JWT_SECRET` | Secret key used for signing JWT tokens. **Must be long and random.** | `my_super_secure_key_12345` | 
+ | ----- | ----- | ----- | 
+| `NODE_ENV` | Application environment flag (e.g., for logging and error handling). | `local` (or `prod`) | 
 | `PORT` | The port the Express server will run on. | `3000` | 
+| `DB_NAME` | The name of the MongoDB database. | `cover_checker` | 
+| `MONGODB_URI` | **MongoDB Connection String.** Use EITHER the local URI or the cluster URI. | `mongodb+srv://<username>:<password>@<clustername>.mongodb.net/` OR `mongodb://127.0.0.1:27017/cover_checker` | 
+| `JWT_SECRET_KEY` | Secret key used for signing JWT tokens. **Must be long and random.** | `<YOUR_JWT_SECRET_KEY>` | 
+| `OPENROUTER_API_KEY` | API Key for accessing the OpenRouter service. | `<YOUR_OPENROUTER_KEY_HERE>` |
+
+
 
 ### 1.4 Running the Server
 
@@ -251,7 +256,7 @@ This route creates an entry, likely metadata or a placeholder record, before or 
 | Parameter         | Type     | Location | Required | Description                                                     |
 | :---------------- | :------- | :------- | :------- | :-------------------------------------------------------------- |
 | `file_name`       | `string` | Body     | Yes      | The name of the file associated with this entry.                |
-| `file_type`       | `string` | Body     | Yes      | The type or category of the file (e.g., 'csv', 'json', 'data'). |
+| `file_type`       | `string` | Body     | Yes      | The type or category of the file (e.g., pdf,text, or docx). |
 | `job_description` | `string` | Body     | Yes      | A description of the job or process this file relates to.       |
 | `study_case`      | `string` | Body     | Yes      | The identifier for the study case or project.                   |
 
@@ -316,7 +321,7 @@ This route creates a new record for application parameters using the same logic 
 | Parameter         | Type     | Location | Required | Description                                                     |
 | :---------------- | :------- | :------- | :------- | :-------------------------------------------------------------- |
 | `file_name`       | `string` | Body     | Yes      | The name of the file associated with this entry.                |
-| `file_type`       | `string` | Body     | Yes      | The type or category of the file (e.g., 'csv', 'json', 'data'). |
+| `file_type`       | `string` | Body     | Yes      | The type or category of the file (pdf, docx, or txt). |
 | `job_description` | `string` | Body     | Yes      | A description of the job or process this file relates to.       |
 | `study_case`      | `string` | Body     | Yes      | The identifier for the study case or project.                   |
 
