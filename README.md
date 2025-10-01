@@ -1,4 +1,4 @@
-# Mini Project Rakamin Backend - CV Corrector/Evaluation API
+# Mini Projec - CV Corrector/Evaluation API
 
 This repository contains the backend API built with Node.js, Express, and MongoDB for the CV Corrector/Evaluation system. It manages user authentication, file uploads, configuration parameters, and the execution/retrieval of job processes.
 
@@ -19,7 +19,7 @@ Ensure you have the following installed on your machine:
 1. **Clone the repository:**
 ```bash
 git clone [your-repo-url]
-cd mini-project-rakamin-backend
+cd mini-project-cv-checker
 ```
 
 
